@@ -439,6 +439,19 @@ a {
   margin-top: 1.5rem;
 }
 
+.cta-support {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.hero-summary-card .cta-support,
+.join-callout .cta-support,
+.spotlight-primary .cta-support,
+.finale-card .cta-support {
+  color: rgba(247, 244, 239, 0.72);
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -576,6 +589,7 @@ a {
   font-size: clamp(1.75rem, 2.6vw, 2.45rem);
   line-height: 1;
   color: var(--page-ivory-strong);
+  overflow-wrap: anywhere;
 }
 
 .credibility-card p:last-child {
@@ -735,9 +749,19 @@ a {
 }
 
 .pillar-icon {
-  display: block;
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  color: rgba(247, 244, 239, 0.72);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .pillar-card h3 {
@@ -819,7 +843,7 @@ a {
   overflow-wrap: anywhere;
 }
 
-.join-callout > p:last-of-type {
+.join-callout-copy {
   max-width: 34rem;
   margin: 1rem 0 0;
   font-size: clamp(1.1rem, 1.7vw, 1.3rem);
@@ -1050,7 +1074,7 @@ a {
   color: var(--page-ivory);
 }
 
-.finale-card > p:last-of-type {
+.finale-copy {
   max-width: 38rem;
   margin: 1.1rem 0 0;
   color: rgba(247, 244, 239, 0.84);
@@ -1190,10 +1214,6 @@ a {
   .gameday-grid {
     grid-template-columns: 1fr;
   }
-
-  .stats-banner-inner {
-    gap: clamp(1rem, 3vw, 2rem);
-  }
 }
 
 /* ── Responsive: Mobile ── */
@@ -1302,6 +1322,7 @@ a {
   .pillars-grid {
     grid-template-columns: 1fr;
   }
+
 }
 
 /* ── Reduced Motion ── */

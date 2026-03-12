@@ -1,6 +1,5 @@
 const root = document.documentElement;
 const heroShell = document.querySelector(".hero-shell");
-const revealPanels = document.querySelectorAll(".reveal-panel");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let ticking = false;
@@ -13,6 +12,10 @@ function easeInOutCubic(value) {
   return value < 0.5
     ? 4 * value * value * value
     : 1 - Math.pow(-2 * value + 2, 3) / 2;
+}
+
+function getRevealPanels() {
+  return document.querySelectorAll(".reveal-panel");
 }
 
 function updateHeroMotion() {
@@ -57,6 +60,8 @@ function updatePointerGlow(event) {
 }
 
 function setupRevealPanels() {
+  const revealPanels = getRevealPanels();
+
   if (reducedMotion.matches || !("IntersectionObserver" in window)) {
     revealPanels.forEach((panel) => panel.classList.add("is-visible"));
     return;
@@ -87,7 +92,7 @@ function setupRevealPanels() {
 
 function handleReducedMotionChange() {
   if (reducedMotion.matches) {
-    revealPanels.forEach((panel) => panel.classList.add("is-visible"));
+    getRevealPanels().forEach((panel) => panel.classList.add("is-visible"));
   }
 
   requestHeroMotion();
