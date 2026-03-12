@@ -496,6 +496,49 @@ a {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.panel-dark,
+.panel-light {
+  position: relative;
+  overflow: hidden;
+}
+
+.panel-dark {
+  color: var(--page-ivory);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.07), transparent 28%),
+    linear-gradient(180deg, rgba(14, 14, 14, 0.92), rgba(7, 7, 7, 0.96));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    var(--shadow-dark);
+}
+
+.panel-light {
+  color: var(--page-ink);
+  border: 1px solid rgba(18, 16, 14, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 238, 229, 0.95));
+  box-shadow: var(--shadow-soft);
+}
+
+.panel-dark .section-tag,
+.panel-dark .credibility-label,
+.panel-dark .note-label,
+.panel-dark .spotlight-route {
+  color: rgba(247, 244, 239, 0.58);
+}
+
+.panel-light .credibility-label,
+.panel-light .note-label {
+  color: rgba(22, 20, 18, 0.54);
+}
+
+.panel-light h3,
+.panel-light p,
+.panel-light figcaption {
+  color: var(--page-ink);
+}
+
 .hero-progress {
   grid-column: 2;
   grid-row: 1 / span 2;
@@ -559,19 +602,13 @@ a {
 .credibility-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.2rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
+  margin-top: 3rem;
 }
 
 .credibility-card {
-  padding: 1.55rem 1.35rem 1.4rem;
-  border-radius: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 18px 40px rgba(0, 0, 0, 0.18);
+  padding: 1.8rem 1.6rem 1.55rem;
+  border-radius: 1.7rem;
 }
 
 .credibility-label {
@@ -597,6 +634,14 @@ a {
   font-size: clamp(1.05rem, 1.55vw, 1.22rem);
   line-height: 1.45;
   color: rgba(247, 244, 239, 0.8);
+}
+
+.panel-light.credibility-card h3 {
+  color: var(--page-ink);
+}
+
+.panel-light.credibility-card p:last-child {
+  color: var(--page-ink-soft);
 }
 
 /* ── Shared Section Padding ── */
@@ -710,7 +755,7 @@ a {
 
 .pillars-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
   margin-top: 3.5rem;
 }
@@ -719,10 +764,6 @@ a {
   position: relative;
   padding: 2.2rem 2rem 2rem;
   border-radius: 1.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
   overflow: hidden;
   transition: border-color 300ms ease, transform 300ms ease;
 }
@@ -818,7 +859,7 @@ a {
 
 .join-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
   gap: 2rem;
   align-items: start;
   margin-top: 3rem;
@@ -832,6 +873,10 @@ a {
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 28%),
     linear-gradient(180deg, rgba(15, 14, 13, 0.92), rgba(8, 8, 8, 0.96));
   box-shadow: var(--shadow-dark);
+}
+
+.join-callout .hero-actions {
+  margin-top: 1.8rem;
 }
 
 .join-callout h3 {
@@ -924,11 +969,6 @@ a {
 .spotlight-primary {
   padding: clamp(1.5rem, 3vw, 2rem);
   border-radius: 2rem;
-  color: var(--page-ivory);
-  background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 26%),
-    linear-gradient(180deg, #0a0a0a 0%, #11100f 100%);
-  box-shadow: var(--shadow-dark);
 }
 
 .spotlight-primary-top {
@@ -960,17 +1000,12 @@ a {
 
 .spotlight-stack {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .spotlight-note {
-  padding: 1.8rem 1.6rem 1.6rem;
-  border-radius: 1.6rem;
-  border: 1px solid rgba(18, 16, 14, 0.08);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(244, 238, 229, 0.92));
-  box-shadow: var(--shadow-soft);
+  padding: 1.55rem 1.35rem 1.35rem;
+  border-radius: 1.45rem;
 }
 
 .note-label {
@@ -992,7 +1027,6 @@ a {
 
 .logo-card {
   border-radius: 1.85rem;
-  box-shadow: var(--shadow-soft);
 }
 
 .logo-card-media {
@@ -1010,22 +1044,11 @@ a {
   padding: 0.6rem 1.25rem 1.35rem;
 }
 
-.logo-card-dark {
-  background: #0a0a0a;
-  color: var(--page-ivory);
-}
-
-.logo-card-dark .logo-card-media {
+.logo-card.panel-dark .logo-card-media {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
 }
 
-.logo-card-light {
-  background: #fbf8f2;
-  color: var(--page-ink);
-  border: 1px solid rgba(18, 16, 14, 0.08);
-}
-
-.logo-card-light .logo-card-media {
+.logo-card.panel-light .logo-card-media {
   background: linear-gradient(180deg, rgba(20, 18, 16, 0.03), transparent);
 }
 
@@ -1181,27 +1204,19 @@ a {
   }
 
   .hero-scene,
-  .join-grid {
+  .join-grid,
+  .spotlight-grid {
     grid-template-columns: 1fr;
   }
 
   .credibility-grid,
-  .manifesto-grid,
   .logo-wall {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .spotlight-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 
   .hero-plate {
     justify-self: stretch;
     width: min(100%, 34rem);
-  }
-
-  .hero-progress {
-    display: none;
   }
 
   .hero-interface {
@@ -1210,13 +1225,21 @@ a {
 
   .hero-summary-card {
     width: min(100%, 30rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-progress {
+    position: absolute;
+    right: clamp(1rem, 4vw, 1.5rem);
+    bottom: clamp(1rem, 3vw, 1.5rem);
+    gap: 0.55rem;
+  }
+
+  .hero-progress-track {
+    height: 8rem;
   }
 
   .pillars-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .join-steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1225,7 +1248,7 @@ a {
 
 @media (max-width: 700px) {
   .hero-shell {
-    height: 175svh;
+    height: 162svh;
   }
 
   .credibility-section {
@@ -1293,10 +1316,6 @@ a {
     gap: 0.5rem;
   }
 
-  .hero-prompt {
-    display: none;
-  }
-
   .meta-chip {
     min-height: 2.2rem;
     padding: 0.55rem 0.8rem 0.45rem;
@@ -1304,11 +1323,29 @@ a {
   }
 
   .hero-progress {
-    display: none;
+    right: 1rem;
+    top: 7.25rem;
+    bottom: auto;
+    gap: 0.45rem;
+  }
+
+  .hero-progress span {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero-progress-track {
+    height: 5.4rem;
   }
 
   .button {
     width: 100%;
+  }
+
+  .join-grid,
+  .spotlight-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .spotlight-primary-top {
@@ -1330,26 +1367,33 @@ a {
   .join-steps,
   .spotlight-stack,
   .logo-wall {
+    display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(82%, 19rem);
-    grid-template-columns: none;
+    grid-auto-columns: minmax(16rem, 84vw);
     overflow-x: auto;
-    overscroll-behavior-x: contain;
+    gap: 1rem;
+    padding-bottom: 0.3rem;
     scroll-snap-type: x proximity;
-    padding-bottom: 0.25rem;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
   }
 
-  .credibility-card,
-  .manifesto-card,
-  .pillar-card,
-  .gameday-card,
-  .spotlight-note,
-  .logo-card {
+  .credibility-grid > *,
+  .manifesto-grid > *,
+  .pillars-grid > *,
+  .join-steps > *,
+  .spotlight-stack > *,
+  .logo-wall > * {
     scroll-snap-align: start;
   }
 
-  .spotlight-grid {
-    gap: 1.25rem;
+  .credibility-grid::-webkit-scrollbar,
+  .manifesto-grid::-webkit-scrollbar,
+  .pillars-grid::-webkit-scrollbar,
+  .join-steps::-webkit-scrollbar,
+  .spotlight-stack::-webkit-scrollbar,
+  .logo-wall::-webkit-scrollbar {
+    display: none;
   }
 
 }
