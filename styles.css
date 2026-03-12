@@ -209,9 +209,7 @@ a {
 .eyebrow,
 .plate-label,
 .meta-chip,
-.hero-prompt-label,
 .hero-progress span,
-.manifesto-index,
 .note-label,
 .spotlight-route {
   margin: 0;
@@ -228,7 +226,6 @@ a {
 .hero-copy h2,
 .section-header h2,
 .spotlight-primary h3,
-.finale-card h2,
 .hero-summary-card h1 {
   margin: 0;
   font-family: "Bodoni Moda", serif;
@@ -244,10 +241,8 @@ a {
 
 .hero-copy p:last-child,
 .section-header > p:last-child,
-.manifesto-card p:last-child,
 .spotlight-primary > p,
 .spotlight-note p:last-child,
-.finale-card > p:last-of-type,
 .hero-summary-text,
 .logo-card figcaption {
   font-size: clamp(1.15rem, 1.85vw, 1.42rem);
@@ -362,24 +357,6 @@ a {
   backdrop-filter: blur(14px);
 }
 
-.hero-prompt {
-  justify-self: center;
-  align-self: start;
-  margin-top: clamp(2rem, 5vh, 3.75rem);
-  display: grid;
-  justify-items: center;
-  gap: 0.45rem;
-  color: var(--page-ivory);
-  opacity: calc(0.82 - var(--hero-progress) * 0.4);
-}
-
-.hero-prompt-line {
-  display: block;
-  width: clamp(4.5rem, 8vw, 6.5rem);
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--page-line), transparent);
-}
-
 .hero-summary-card {
   position: relative;
   align-self: end;
@@ -446,9 +423,7 @@ a {
 }
 
 .hero-summary-card .cta-support,
-.join-callout .cta-support,
-.spotlight-primary .cta-support,
-.finale-card .cta-support {
+.spotlight-primary .cta-support {
   color: rgba(247, 244, 239, 0.72);
 }
 
@@ -646,20 +621,10 @@ a {
 
 /* ── Shared Section Padding ── */
 
-.manifesto-section,
-.spotlight-section,
-.finale-section,
 .pillars-section,
-.gameday-section {
+.spotlight-section {
   position: relative;
   padding: clamp(4.5rem, 9vw, 7.5rem) clamp(1.25rem, 4vw, 3.5rem);
-}
-
-.manifesto-section {
-  color: var(--page-ivory);
-  background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 22%),
-    linear-gradient(180deg, #090909 0%, #15110f 54%, #241d18 100%);
 }
 
 .section-header {
@@ -676,71 +641,11 @@ a {
   margin: 1.2rem 0 0;
 }
 
-.manifesto-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
-  margin-top: 3.5rem;
-}
-
-.manifesto-card,
 .spotlight-primary,
 .spotlight-note,
-.logo-card,
-.finale-card {
+.logo-card {
   position: relative;
   overflow: hidden;
-}
-
-.manifesto-card {
-  padding: 2.2rem 2rem 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.6rem;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.manifesto-index {
-  color: rgba(247, 244, 239, 0.54);
-  font-size: 0.98rem;
-}
-
-.manifesto-card h3 {
-  margin: 0.55rem 0 0;
-  font-family: "Bodoni Moda", serif;
-  font-size: clamp(1.85rem, 2.6vw, 2.6rem);
-  line-height: 1;
-}
-
-.manifesto-card p:last-child {
-  margin: 0.9rem 0 0;
-  color: rgba(247, 244, 239, 0.82);
-}
-
-.manifesto-band {
-  margin-top: 2.2rem;
-  overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.manifesto-band-track {
-  display: flex;
-  gap: 1.2rem;
-  min-width: max-content;
-  padding: 0.9rem 0;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(1.15rem, 2vw, 1.6rem);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(247, 244, 239, 0.58);
-  animation: marquee 28s linear infinite;
-}
-
-.manifesto-band-track span::after {
-  content: " /";
-  margin-left: 1.2rem;
 }
 
 /* ── Pillars Section ── */
@@ -818,136 +723,6 @@ a {
   font-size: clamp(1.05rem, 1.5vw, 1.25rem);
   line-height: 1.6;
   color: rgba(247, 244, 239, 0.76);
-}
-
-/* ── Game Day Section ── */
-
-.gameday-section {
-  color: var(--page-ivory);
-  overflow: hidden;
-}
-
-.gameday-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      ellipse at 50% 0%,
-      rgba(232, 115, 58, 0.08) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 90%,
-      rgba(255, 255, 255, 0.04),
-      transparent 30%
-    ),
-    linear-gradient(180deg, #0c0a08 0%, #161210 50%, #0a0808 100%);
-  pointer-events: none;
-}
-
-.gameday-content {
-  position: relative;
-  z-index: 1;
-}
-
-.gameday-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
-  margin-top: 3.5rem;
-}
-
-.join-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
-  gap: 2rem;
-  align-items: start;
-  margin-top: 3rem;
-}
-
-.join-callout {
-  padding: clamp(1.8rem, 3vw, 2.4rem);
-  border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 28%),
-    linear-gradient(180deg, rgba(15, 14, 13, 0.92), rgba(8, 8, 8, 0.96));
-  box-shadow: var(--shadow-dark);
-}
-
-.join-callout .hero-actions {
-  margin-top: 1.8rem;
-}
-
-.join-callout h3 {
-  margin: 0.7rem 0 0;
-  font-family: "Bodoni Moda", serif;
-  font-size: clamp(2.4rem, 4vw, 4.2rem);
-  line-height: 0.96;
-  color: var(--page-ivory);
-  overflow-wrap: anywhere;
-}
-
-.join-callout-copy {
-  max-width: 34rem;
-  margin: 1rem 0 0;
-  font-size: clamp(1.1rem, 1.7vw, 1.3rem);
-  line-height: 1.55;
-  color: rgba(247, 244, 239, 0.82);
-}
-
-.join-steps {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-}
-
-.gameday-card {
-  position: relative;
-  padding: 2.2rem 2rem 2rem;
-  border-radius: 1.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-  backdrop-filter: blur(12px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    0 16px 48px rgba(0, 0, 0, 0.28);
-  overflow: hidden;
-}
-
-.gameday-card::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(232, 115, 58, 0.4), transparent);
-}
-
-.gameday-card-icon {
-  display: block;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.18em;
-  margin-bottom: 0.6rem;
-  color: rgba(247, 244, 239, 0.54);
-}
-
-.gameday-card h3 {
-  margin: 0;
-  font-family: "Bodoni Moda", serif;
-  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
-  line-height: 1;
-  color: var(--page-ivory-strong);
-}
-
-.gameday-card p {
-  margin: 1rem 0 0;
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-  line-height: 1.6;
-  color: rgba(247, 244, 239, 0.78);
 }
 
 /* ── Spotlight Section ── */
@@ -1052,59 +827,6 @@ a {
   background: linear-gradient(180deg, rgba(20, 18, 16, 0.03), transparent);
 }
 
-/* ── Finale ── */
-
-.finale-section {
-  color: var(--page-ivory);
-  background:
-    radial-gradient(
-      circle at calc(var(--pointer-x) * 100%) 0%,
-      rgba(255, 255, 255, 0.08),
-      transparent 28%
-    ),
-    linear-gradient(180deg, #090909 0%, #050505 100%);
-}
-
-.finale-aura {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255, 255, 255, 0.08) 0%,
-      transparent 34%
-    ),
-    radial-gradient(
-      circle at calc(var(--pointer-x) * 100%) 25%,
-      rgba(255, 255, 255, 0.08) 0%,
-      transparent 26%
-    );
-}
-
-.finale-card {
-  max-width: 54rem;
-  padding: clamp(1.8rem, 4vw, 2.6rem);
-  border-radius: 2.15rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-  box-shadow: var(--shadow-dark);
-  backdrop-filter: blur(16px);
-}
-
-.finale-card h2 {
-  margin-top: 0.55rem;
-  font-size: clamp(2.6rem, 5.5vw, 5.9rem);
-  color: var(--page-ivory);
-}
-
-.finale-copy {
-  max-width: 38rem;
-  margin: 1.1rem 0 0;
-  color: rgba(247, 244, 239, 0.84);
-}
-
 /* ── Footer ── */
 
 .site-footer {
@@ -1186,16 +908,6 @@ a {
   transform: translate3d(0, 0, 0) scale(1);
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 /* ── Responsive: Tablet ── */
 
 @media (max-width: 1080px) {
@@ -1204,7 +916,6 @@ a {
   }
 
   .hero-scene,
-  .join-grid,
   .spotlight-grid {
     grid-template-columns: 1fr;
   }
@@ -1257,11 +968,8 @@ a {
 
   .hero-layer,
   .hero-interface,
-  .manifesto-section,
   .spotlight-section,
-  .finale-section,
-  .pillars-section,
-  .gameday-section {
+  .pillars-section {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
     padding-top: 3.75rem;
@@ -1342,7 +1050,6 @@ a {
     width: 100%;
   }
 
-  .join-grid,
   .spotlight-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -1357,43 +1064,16 @@ a {
     font-size: clamp(2.5rem, 12vw, 3.8rem);
   }
 
-  .join-callout h3 {
-    font-size: clamp(2.2rem, 10vw, 3.6rem);
-  }
-
   .credibility-grid,
-  .manifesto-grid,
   .pillars-grid,
-  .join-steps,
   .spotlight-stack,
   .logo-wall {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(16rem, 84vw);
-    overflow-x: auto;
+    grid-template-columns: 1fr;
     gap: 1rem;
-    padding-bottom: 0.3rem;
-    scroll-snap-type: x proximity;
-    overscroll-behavior-x: contain;
-    scrollbar-width: none;
   }
 
-  .credibility-grid > *,
-  .manifesto-grid > *,
-  .pillars-grid > *,
-  .join-steps > *,
-  .spotlight-stack > *,
-  .logo-wall > * {
-    scroll-snap-align: start;
-  }
-
-  .credibility-grid::-webkit-scrollbar,
-  .manifesto-grid::-webkit-scrollbar,
-  .pillars-grid::-webkit-scrollbar,
-  .join-steps::-webkit-scrollbar,
-  .spotlight-stack::-webkit-scrollbar,
-  .logo-wall::-webkit-scrollbar {
-    display: none;
+  .logo-wall {
+    gap: 1.2rem;
   }
 
 }
@@ -1443,18 +1123,13 @@ a {
     transform: none;
   }
 
-  .manifesto-band-track {
-    animation: none;
-  }
-
   .reveal-panel {
     opacity: 1;
     transform: none;
     transition: none;
   }
 
-  .pillar-card,
-  .gameday-card {
+  .pillar-card {
     transition: none;
   }
 
