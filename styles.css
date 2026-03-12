@@ -818,7 +818,7 @@ a {
 
 .join-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: start;
   margin-top: 3rem;
@@ -853,6 +853,7 @@ a {
 
 .join-steps {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
@@ -959,6 +960,7 @@ a {
 
 .spotlight-stack {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
@@ -1179,11 +1181,18 @@ a {
   }
 
   .hero-scene,
-  .spotlight-grid,
-  .logo-wall,
-  .credibility-grid,
   .join-grid {
     grid-template-columns: 1fr;
+  }
+
+  .credibility-grid,
+  .manifesto-grid,
+  .logo-wall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .spotlight-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 
   .hero-plate {
@@ -1203,16 +1212,12 @@ a {
     width: min(100%, 30rem);
   }
 
-  .manifesto-grid {
-    grid-template-columns: 1fr;
-  }
-
   .pillars-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .gameday-grid {
-    grid-template-columns: 1fr;
+  .join-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1319,8 +1324,32 @@ a {
     font-size: clamp(2.2rem, 10vw, 3.6rem);
   }
 
-  .pillars-grid {
-    grid-template-columns: 1fr;
+  .credibility-grid,
+  .manifesto-grid,
+  .pillars-grid,
+  .join-steps,
+  .spotlight-stack,
+  .logo-wall {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(82%, 19rem);
+    grid-template-columns: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    padding-bottom: 0.25rem;
+  }
+
+  .credibility-card,
+  .manifesto-card,
+  .pillar-card,
+  .gameday-card,
+  .spotlight-note,
+  .logo-card {
+    scroll-snap-align: start;
+  }
+
+  .spotlight-grid {
+    gap: 1.25rem;
   }
 
 }
