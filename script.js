@@ -1,5 +1,11 @@
 const root = document.documentElement;
 const heroShell = document.querySelector(".hero-shell");
+const navLinks = Array.from(document.querySelectorAll("[data-nav-link]"));
+const trackedSections = Array.from(
+  document.querySelectorAll(
+    "#home, #about, #players, #purpose, #pillars, #faq, #contact, #instagram"
+  )
+);
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let ticking = false;
@@ -18,10 +24,37 @@ function getRevealPanels() {
   return document.querySelectorAll(".reveal-panel");
 }
 
+function updateActiveNav() {
+  if (!navLinks.length || !trackedSections.length) {
+    return;
+  }
+
+  const navOffset = parseFloat(
+    getComputedStyle(root).getPropertyValue("--nav-offset")
+  );
+  const anchorLine = Math.max(window.innerHeight * 0.26, navOffset || 0);
+  let currentId = trackedSections[0].id;
+
+  trackedSections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+
+    if (rect.top <= anchorLine) {
+      currentId = section.id;
+    }
+  });
+
+  navLinks.forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${currentId}`;
+    link.classList.toggle("is-active", isActive);
+    link.setAttribute("aria-current", isActive ? "page" : "false");
+  });
+}
+
 function updateHeroMotion() {
   if (!heroShell || reducedMotion.matches) {
     root.style.setProperty("--hero-progress", "0");
     root.style.setProperty("--hero-progress-smooth", "0");
+    updateActiveNav();
     ticking = false;
     return;
   }
@@ -35,6 +68,7 @@ function updateHeroMotion() {
 
   root.style.setProperty("--hero-progress", progress.toFixed(4));
   root.style.setProperty("--hero-progress-smooth", eased.toFixed(4));
+  updateActiveNav();
   ticking = false;
 }
 
