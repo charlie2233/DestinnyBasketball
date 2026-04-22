@@ -325,6 +325,29 @@ a {
   line-height: 1.6;
 }
 
+.social-handle {
+  margin: 0.7rem 0 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2rem, 3.2vw, 3.05rem);
+  line-height: 0.96;
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  overflow-wrap: anywhere;
+}
+
+.credibility-card .social-handle {
+  font-size: clamp(1.45rem, 1.6vw, 1.8rem);
+  letter-spacing: 0.04em;
+}
+
+.contact-card .social-handle {
+  font-size: clamp(1.8rem, 2.5vw, 2.55rem);
+}
+
+.spotlight-primary .social-handle {
+  font-size: clamp(1.95rem, 2.8vw, 2.9rem);
+}
+
 .hero-copy-dark {
   opacity: calc(1 - var(--hero-progress) * 0.92);
   transform: translate3d(0, calc(var(--hero-progress-smooth) * -10vh), 0);
@@ -739,16 +762,100 @@ a {
 
 .players-section {
   color: var(--page-ivory);
+  overflow: hidden;
   background:
     radial-gradient(circle at 20% 15%, rgba(232, 115, 58, 0.08), transparent 34%),
     linear-gradient(180deg, #120f0d 0%, #080707 100%);
+}
+
+.players-section::before,
+.players-section::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.players-section::before {
+  inset: 0;
+  background:
+    radial-gradient(circle at 16% 22%, rgba(255, 255, 255, 0.05), transparent 20%),
+    radial-gradient(circle at 78% 40%, rgba(255, 255, 255, 0.04), transparent 24%);
+  opacity: 0.8;
+}
+
+.players-section::after {
+  top: 4rem;
+  right: -10rem;
+  width: min(40rem, 42vw);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.players-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 2.25rem;
+  align-items: start;
+}
+
+.players-intro {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.players-brief {
+  padding: 1.55rem 1.45rem 1.4rem;
+  border-radius: 1.6rem;
+}
+
+.players-brief h3 {
+  margin: 0.55rem 0 0;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(1.9rem, 2.7vw, 2.65rem);
+  line-height: 1;
+}
+
+.players-brief p:last-of-type {
+  margin: 0.8rem 0 0;
+  font-size: clamp(1.04rem, 1.35vw, 1.18rem);
+  line-height: 1.6;
+  color: var(--page-ink-soft);
+}
+
+.players-brief-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.1rem;
+}
+
+.players-brief-meta span,
+.contact-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.2rem;
+  padding: 0.55rem 0.85rem 0.45rem;
+  border-radius: 999px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.players-brief-meta span {
+  color: rgba(22, 20, 18, 0.72);
+  background: rgba(22, 20, 18, 0.06);
+  border: 1px solid rgba(22, 20, 18, 0.08);
 }
 
 .roster-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.35rem;
-  margin-top: 3rem;
 }
 
 .roster-card {
@@ -758,15 +865,48 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  transition:
+    transform 260ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease;
+}
+
+.roster-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 42%),
+    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.05), transparent 28%);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.roster-card::after {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  width: 2.9rem;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.roster-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 24px 60px rgba(0, 0, 0, 0.36);
 }
 
 .roster-number {
-  margin: 0 0 2rem;
+  margin: 0 0 2.15rem;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 3rem;
+  font-size: 3.35rem;
   line-height: 1;
   letter-spacing: 0.14em;
-  color: rgba(247, 244, 239, 0.2);
+  color: rgba(247, 244, 239, 0.16);
 }
 
 .roster-card h3,
@@ -796,6 +936,11 @@ a {
   background:
     radial-gradient(circle at 12% 18%, rgba(232, 115, 58, 0.06), transparent 24%),
     linear-gradient(180deg, #f2ede5 0%, #f7f4ed 100%);
+}
+
+.purpose-section .section-header h2,
+.spotlight-section .section-header h2 {
+  max-width: 14ch;
 }
 
 .purpose-grid {
@@ -939,6 +1084,28 @@ a {
     linear-gradient(180deg, #171210 0%, #070707 100%);
 }
 
+.contact-section .section-header h2 {
+  max-width: 11ch;
+  font-size: clamp(2.5rem, 4.7vw, 4.85rem);
+}
+
+.contact-section .section-header > p:last-child {
+  max-width: 34rem;
+}
+
+.contact-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.35rem;
+}
+
+.contact-tags span {
+  color: rgba(247, 244, 239, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
@@ -952,10 +1119,7 @@ a {
 }
 
 .contact-card h3 {
-  margin-top: 0.55rem;
-  font-size: clamp(2rem, 4vw, 3.25rem);
   color: var(--page-ivory-strong);
-  overflow-wrap: anywhere;
 }
 
 .contact-card p {
@@ -1001,10 +1165,7 @@ a {
 .spotlight-primary h3 {
   margin-top: 0.8rem;
   max-width: 100%;
-  font-size: clamp(2.7rem, 4.8vw, 4.5rem);
   color: var(--page-ivory);
-  overflow-wrap: anywhere;
-  word-break: break-word;
 }
 
 .spotlight-primary > p {
@@ -1157,7 +1318,8 @@ a {
 
   .hero-scene,
   .spotlight-grid,
-  .contact-grid {
+  .contact-grid,
+  .players-layout {
     grid-template-columns: 1fr;
   }
 
@@ -1280,15 +1442,16 @@ a {
   .hero-plate {
     order: 1;
     width: 100%;
+    opacity: 0.62;
   }
 
   .hero-plate-image {
-    min-height: 14rem;
+    min-height: 12rem;
   }
 
   .hero-summary-card {
     width: 100%;
-    padding: 0.95rem 0.95rem 1.05rem;
+    padding: 1.05rem 1rem 1.12rem;
   }
 
   .hero-summary-card h1 {
@@ -1300,8 +1463,14 @@ a {
   }
 
   .hero-strip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, max-content));
     max-width: 100%;
     gap: 0.5rem;
+  }
+
+  .hero-strip .meta-chip:last-child {
+    grid-column: 1 / -1;
   }
 
   .meta-chip {
@@ -1349,7 +1518,7 @@ a {
   }
 
   .spotlight-primary h3 {
-    font-size: clamp(2.5rem, 12vw, 3.8rem);
+    font-size: clamp(1.95rem, 10vw, 3rem);
   }
 
   .credibility-grid,
@@ -1365,6 +1534,23 @@ a {
 
   .roster-card {
     min-height: 13rem;
+  }
+
+  .players-brief-meta,
+  .contact-tags {
+    gap: 0.55rem;
+  }
+
+  .players-brief-meta span,
+  .contact-tags span {
+    min-height: 2rem;
+    padding: 0.48rem 0.72rem 0.38rem;
+    font-size: 0.78rem;
+  }
+
+  .contact-section .section-header h2,
+  .spotlight-section .section-header h2 {
+    max-width: 10ch;
   }
 
   .contact-card h3,
